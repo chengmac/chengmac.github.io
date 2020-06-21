@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用html开发email模板注意事项 | chengmac</title>
+    <meta name="description" content="chengmac的博客">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="preload" href="/assets/css/0.styles.bfa9bcb2.css" as="style"><link rel="preload" href="/assets/js/app.728c783e.js" as="script"><link rel="preload" href="/assets/js/7.300c7d95.js" as="script"><link rel="preload" href="/assets/js/15.24d9ee9c.js" as="script"><link rel="prefetch" href="/assets/js/1.ac8c64a2.js"><link rel="prefetch" href="/assets/js/10.08b422bb.js"><link rel="prefetch" href="/assets/js/11.0165e570.js"><link rel="prefetch" href="/assets/js/12.a188d80d.js"><link rel="prefetch" href="/assets/js/13.21015ba5.js"><link rel="prefetch" href="/assets/js/14.d4cb1253.js"><link rel="prefetch" href="/assets/js/16.c7bb3fd0.js"><link rel="prefetch" href="/assets/js/3.07d67d97.js"><link rel="prefetch" href="/assets/js/4.f44abd45.js"><link rel="prefetch" href="/assets/js/5.fd9fd709.js"><link rel="prefetch" href="/assets/js/6.6c72967a.js"><link rel="prefetch" href="/assets/js/8.c5352b62.js"><link rel="prefetch" href="/assets/js/9.2520f36e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.bfa9bcb2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy"><header class="header" data-v-7a046aea><div data-v-e4145d0a data-v-7a046aea><nav class="navbar" data-v-e4145d0a><div class="container" data-v-e4145d0a><a href="/" class="router-link-active" data-v-e4145d0a><span class="navbar-site-name" data-v-e4145d0a>
+          chengmac
+        </span></a> <div class="navbar-toggler" data-v-e4145d0a><svg class="icon" style="font-size:1.2em;" data-v-e4145d0a data-v-e4145d0a><title data-v-e4145d0a data-v-e4145d0a>menu</title><use xlink:href="#icon-menu" data-v-e4145d0a data-v-e4145d0a></use></svg></div> <div class="navbar-links" data-v-e4145d0a><a href="/" class="navbar-link" data-v-e4145d0a>
+            首页
+          </a><a href="/posts/" class="navbar-link router-link-active" data-v-e4145d0a>
+            文章
+          </a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-e4145d0a></div></div> <div class="banner" data-v-98d6aa8c data-v-7a046aea data-v-7a046aea><div class="container" data-v-98d6aa8c><div class="center" data-v-98d6aa8c><h1 data-v-98d6aa8c data-v-7a046aea>
+          使用html开发email模板注意事项
+        </h1></div></div></div></header> <div class="container clearfix show-aside" data-v-4dd605a1 data-v-4dd605a1><main class="main" data-v-4dd605a1><div class="post" data-v-4dd605a1 data-v-4dd605a1><section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2002-06-20
+    </span> <!----></section> <section class="post-links" data-v-4e23451f><!----> <a href="/posts/2019/01/22/angularwebsql.html" class="post-link" data-v-4e23451f>
+      下一篇 : 关于angular-webSQL的使用
+    </a></section></section> <article class="main-div"><div class="post-content content content__default"><p>编写html邮件不同于一般的页面，由于不同的邮箱客户端厂商对于W3C标准实现的不同，加之没有统一的标准，编写html邮件有很多坑，故在此记录。</p> <h2 id="_1-布局说明"><a href="#_1-布局说明" class="header-anchor">#</a> 1.布局说明</h2> <p>受制于邮箱客户端对html解析限制，故传统的页面布局方式不能被识别，只能采用table布局方式，重要事情的说三遍 <font color="red">table布局、</font><font color="red">table布局、</font><font color="red">table布局</font>。页面的基本构成为table嵌套table是来实现，每个table标签最好设置属性border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; ，以保证样式的稳定，尤其是width属性。</p> <h2 id="_2-样式说明"><a href="#_2-样式说明" class="header-anchor">#</a> 2.样式说明</h2> <p>正如前面所说，各个邮箱客户端对W3C实现不同，所以几乎大部分CSS3属性就不能被解析了，在书写样式时避免包在style标签内，更不要写单独的css文件，统一使用内联样式，并且最好内联样式后加上 <font color="red">! important</font> 以提高权重。另外支持字体以css方式引入，至于图片加载就不那么友好了，图片不能直接读取本地图片，只能加载链接形式的图片。</p> <h2 id="_3-问题汇总"><a href="#_3-问题汇总" class="header-anchor">#</a> 3.问题汇总</h2> <ol><li><p>使用img元素时必须加样式 display：block，以便清除img和td间的留白间隙。</p></li> <li><p>实现页面响应式布局时需采用媒体查询用过控制display属性的 table-cell 和 block值来实现，其中display：table-cell为水平布局，display：block为垂直布局。</p></li> <li><p>文字内容溢出没法处理.</p></li> <li><p>windows系统中outlook下display：table-cell无效，需要针对outlook做专门的页面布局.</p></li> <li><p>gamil下默认td元素中文字上下有留白间隙，无法直接清除，只能通过给td元素设置line-height属性来hack的处理.</p></li> <li><p>table的padding属性在某些客户端无法识别，建议统一在td元素上设置padding来添加间距.</p></li></ol></div></article> <section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2002-06-20
+    </span> <!----></section> <section class="post-links" data-v-4e23451f><!----> <a href="/posts/2019/01/22/angularwebsql.html" class="post-link" data-v-4e23451f>
+      下一篇 : 关于angular-webSQL的使用
+    </a></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-4dd605a1><div class="info-card main-div" data-v-9d847660 data-v-4dd605a1><div class="info-card-header" data-v-9d847660><img src="/images/avatar.jpeg" alt="chengmac" class="info-avatar" data-v-9d847660></div> <div class="info-card-body" data-v-9d847660><section class="info-nickname" data-v-9d847660>
+      chengmac
+    </section> <section class="info-desc" data-v-9d847660>做自己</section> <section class="info-contact" data-v-9d847660><section data-v-9d847660><span title="中国 西安" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>中国 西安</title><use xlink:href="#icon-location" data-v-9d847660 data-v-9d847660></use></svg><span class="info-text" data-v-9d847660 data-v-9d847660>
+          中国 西安
+        </span></span></section> <!----> <section data-v-9d847660><a href="mailto:chengmac@126.com" title="chengmac@126.com" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>chengmac@126.com</title><use xlink:href="#icon-email" data-v-9d847660 data-v-9d847660></use></svg><span class="info-text" data-v-9d847660 data-v-9d847660>
+          chengmac@126.com
+        </span></a></section></section></div> <div class="info-card-footer" data-v-9d847660><section class="info-sns clearfix" data-v-9d847660><a href="https://github.com/chengmac" target="_blank" class="sns-link" data-v-9d847660><span title="GitHub: chengmac" class="sns-icon" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1.5em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>GitHub: chengmac</title><use xlink:href="#icon-github" data-v-9d847660 data-v-9d847660></use></svg></span></a></section></div></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-4dd605a1><div class="post-nav-contents"><svg class="icon"><title>book</title><use xlink:href="#icon-book"></use></svg> <span>文章目录</span> <div class="post-nav-toc"><ul><li><a href="/posts/2002/06/20/emailtemplate.html#_1-布局说明">1.布局说明</a></li><li><a href="/posts/2002/06/20/emailtemplate.html#_2-样式说明">2.样式说明</a></li><li><a href="/posts/2002/06/20/emailtemplate.html#_3-问题汇总">3.问题汇总</a></li></ul></div></div> <div class="post-nav-comments"><svg class="icon"><title>comment</title><use xlink:href="#icon-comment"></use></svg> <a href="/posts/2002/06/20/emailtemplate.html#post-comments">
+      评论
+    </a></div></div></aside></div> <footer class="footer" data-v-1375e54c><p class="footer-sns-links" data-v-1375e54c><a href="https://github.com/chengmac" target="_blank" class="sns-link" data-v-1375e54c><span title="GitHub: chengmac" class="sns-icon" data-v-1375e54c data-v-1375e54c><svg class="icon" style="font-size:25px;" data-v-1375e54c data-v-1375e54c><title data-v-1375e54c data-v-1375e54c>GitHub: chengmac</title><use xlink:href="#icon-github" data-v-1375e54c data-v-1375e54c></use></svg></span></a></p> <p class="footer-text" data-v-1375e54c><span data-v-1375e54c>Powered by </span> <a href="https://github.com/vuejs/vuepress" target="_blank" data-v-1375e54c>
+      VuePress
+    </a> <span data-v-1375e54c> | </span> <a href="https://github.com/meteorlxy/vuepress-theme-meteorlxy" target="_blank" data-v-1375e54c>
+        meteorlxy
+      </a></p> <!----></footer></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.728c783e.js" defer></script><script src="/assets/js/7.300c7d95.js" defer></script><script src="/assets/js/15.24d9ee9c.js" defer></script>
+  </body>
+</html>
