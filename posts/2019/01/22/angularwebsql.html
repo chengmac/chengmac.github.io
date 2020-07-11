@@ -6,7 +6,7 @@
     <title>关于angular-webSQL的使用 | chengmac</title>
     <meta name="description" content="chengmac的博客">
     <meta name="generator" content="VuePress 1.3.1">
-    <link rel="preload" href="/assets/css/0.styles.bfa9bcb2.css" as="style"><link rel="preload" href="/assets/js/app.4a9a43ed.js" as="script"><link rel="preload" href="/assets/js/7.300c7d95.js" as="script"><link rel="preload" href="/assets/js/14.73c3d440.js" as="script"><link rel="prefetch" href="/assets/js/1.ac8c64a2.js"><link rel="prefetch" href="/assets/js/10.08b422bb.js"><link rel="prefetch" href="/assets/js/11.0165e570.js"><link rel="prefetch" href="/assets/js/12.a188d80d.js"><link rel="prefetch" href="/assets/js/13.21015ba5.js"><link rel="prefetch" href="/assets/js/15.5af7f8c3.js"><link rel="prefetch" href="/assets/js/16.c7bb3fd0.js"><link rel="prefetch" href="/assets/js/3.07d67d97.js"><link rel="prefetch" href="/assets/js/4.f44abd45.js"><link rel="prefetch" href="/assets/js/5.fd9fd709.js"><link rel="prefetch" href="/assets/js/6.6c72967a.js"><link rel="prefetch" href="/assets/js/8.c5352b62.js"><link rel="prefetch" href="/assets/js/9.2520f36e.js">
+    <link rel="preload" href="/assets/css/0.styles.bfa9bcb2.css" as="style"><link rel="preload" href="/assets/js/app.5df20c04.js" as="script"><link rel="preload" href="/assets/js/7.300c7d95.js" as="script"><link rel="preload" href="/assets/js/14.73c3d440.js" as="script"><link rel="prefetch" href="/assets/js/1.ac8c64a2.js"><link rel="prefetch" href="/assets/js/10.08b422bb.js"><link rel="prefetch" href="/assets/js/11.0165e570.js"><link rel="prefetch" href="/assets/js/12.a188d80d.js"><link rel="prefetch" href="/assets/js/13.21015ba5.js"><link rel="prefetch" href="/assets/js/15.5af7f8c3.js"><link rel="prefetch" href="/assets/js/16.c7bb3fd0.js"><link rel="prefetch" href="/assets/js/3.07d67d97.js"><link rel="prefetch" href="/assets/js/4.f44abd45.js"><link rel="prefetch" href="/assets/js/5.fd9fd709.js"><link rel="prefetch" href="/assets/js/6.6c72967a.js"><link rel="prefetch" href="/assets/js/8.c5352b62.js"><link rel="prefetch" href="/assets/js/9.2520f36e.js">
     <link rel="stylesheet" href="/assets/css/0.styles.bfa9bcb2.css">
   </head>
   <body>
@@ -21,7 +21,7 @@
         </h1></div></div></div></header> <div class="container clearfix show-aside" data-v-4dd605a1 data-v-4dd605a1><main class="main" data-v-4dd605a1><div class="post" data-v-4dd605a1 data-v-4dd605a1><section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
       发布时间 : 2019-01-22
     </span> <span class="update-date" data-v-4e23451f>
-      最后修改 : 2020-03-08
+      最后修改 : 2020-06-21
     </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2002/06/20/emailtemplate.html" class="post-link" data-v-4e23451f>
       上一篇 : 使用html开发email模板注意事项
     </a> <!----></section></section> <article class="main-div"><div class="post-content content content__default"><p>最近在用angular写一个移动端的项目，其中某模块用到了模糊查询功能，说是要在前端来实现此功能，而且查询的数据体量较大，所以就想到用webSQL可以存储，听说angular封装了一个webSQL的模块，于是就决定采用angular-websql用于存储数据，下面来说下其使用的具体方法：</p> <h2 id="_1-安装"><a href="#_1-安装" class="header-anchor">#</a> 1.安装</h2> <p>1.1 可以通过bower或者npm来安装，npm这里就不多说了，这里提供bower安装地址：<a href="https://bower.io/" target="_blank" rel="noopener noreferrer">bower下载地址<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，本文后面将以bower方式进行讲解</p> <p>安装命令如下：</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># bower install</span>
@@ -127,7 +127,7 @@ $scope<span class="token punctuation">.</span>db<span class="token punctuation">
 </code></pre></div><h2 id="_3-总结"><a href="#_3-总结" class="header-anchor">#</a> 3 总结</h2> <p>websql的使用场景是在浏览器中Cookie和storage不能满足要求时采用的必要手段，以解决大量数据的本地存储需求。以上对数据库的操作很是方便明了，并且不用自己写查询的语句，是不是很nice!</p></div></article> <section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
       发布时间 : 2019-01-22
     </span> <span class="update-date" data-v-4e23451f>
-      最后修改 : 2020-03-08
+      最后修改 : 2020-06-21
     </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2002/06/20/emailtemplate.html" class="post-link" data-v-4e23451f>
       上一篇 : 使用html开发email模板注意事项
     </a> <!----></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-4dd605a1><div class="info-card main-div" data-v-9d847660 data-v-4dd605a1><div class="info-card-header" data-v-9d847660><img src="/images/avatar.jpeg" alt="chengmac" class="info-avatar" data-v-9d847660></div> <div class="info-card-body" data-v-9d847660><section class="info-nickname" data-v-9d847660>
@@ -143,6 +143,6 @@ $scope<span class="token punctuation">.</span>db<span class="token punctuation">
     </a> <span data-v-1375e54c> | </span> <a href="https://github.com/meteorlxy/vuepress-theme-meteorlxy" target="_blank" data-v-1375e54c>
         meteorlxy
       </a></p> <!----></footer></div><div class="global-ui"><!----><!----></div></div>
-    <script src="/assets/js/app.4a9a43ed.js" defer></script><script src="/assets/js/7.300c7d95.js" defer></script><script src="/assets/js/14.73c3d440.js" defer></script>
+    <script src="/assets/js/app.5df20c04.js" defer></script><script src="/assets/js/7.300c7d95.js" defer></script><script src="/assets/js/14.73c3d440.js" defer></script>
   </body>
 </html>
